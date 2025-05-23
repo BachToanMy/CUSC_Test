@@ -8,7 +8,11 @@ const Add = ({ isOpen, close }) => {
   const [isDt, setDt] = useState(null);
   const [isEmail, setEmail] = useState(null);
   const handleUpdate = () => {
-    if (isMS.length > 6 && isMS.length < 8 && !null) {
+    if (
+      (isMS.length > 6 && isMS.length < 8) &&
+      (isTen.length >= 10 && isTen < 250) &&
+      isDt === 10
+    ) {
     } else {
       alert("Du lieu khong dung dinh dang");
     }
@@ -41,12 +45,14 @@ const Add = ({ isOpen, close }) => {
                       </p>
                       <input
                         className="border-solid border-1"
+                        value={isMS}
                         onChange={(e) => setMS(e.target.value)}
                       ></input>
                     </div>
                     <div className="flex flex-row text-right">
                       <p className="px-3 basis-64">Họ và tên</p>
                       <input
+                        value={isTen}
                         className="border-solid border-1"
                         onChange={(e) => setTen(e.target.value)}
                       ></input>
@@ -61,6 +67,7 @@ const Add = ({ isOpen, close }) => {
                     <div className=" flex flex-row text-right">
                       <p className="px-3 basis-64">Địa chỉ</p>
                       <input
+                        value={isDc}
                         className="border-solid border-1"
                         onChange={(e) => setDc(e.target.value)}
                       ></input>
@@ -68,6 +75,7 @@ const Add = ({ isOpen, close }) => {
                     <div className=" flex flex-row text-right">
                       <p className="px-3 basis-64">Điện thoại</p>
                       <input
+                        value={isDt}
                         className="border-solid border-1"
                         onChange={(e) => setDt(e.target.value)}
                       ></input>
