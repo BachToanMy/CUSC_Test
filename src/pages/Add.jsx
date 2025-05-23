@@ -1,5 +1,18 @@
+import { useState } from "react";
 import { Button, Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 const Add = ({ isOpen, close }) => {
+  const [isMS, setMS] = useState(null);
+  const [isTen, setTen] = useState(null);
+  const [isGT, setGT] = useState(null);
+  const [isDc, setDc] = useState(null);
+  const [isDt, setDt] = useState(null);
+  const [isEmail, setEmail] = useState(null);
+  const handleUpdate = () => {
+    if (isMS.length > 6 && isMS.length < 8 && !null) {
+    } else {
+      alert("Du lieu khong dung dinh dang");
+    }
+  };
   return (
     <Dialog
       open={isOpen}
@@ -17,29 +30,66 @@ const Add = ({ isOpen, close }) => {
               <div class="flex items-center justify-center">
                 <div>
                   <div className="text-center bg-gray-600">
-                    <p className="p-2 text-2xl text-white">Đăng nhập</p>
+                    <p className="p-2 text-2xl text-white">
+                      Thêm mới/ cập nhật sinh viên
+                    </p>
                   </div>
                   <div class="bg-white p-8 rounded shadow-lg">
-                    <div className="py-5 flex">
-                      <p className="px-3">Tài khoản</p>
+                    <div className="flex flex-row">
+                      <p className="px-3 basis-64 text-right">
+                        Mã số sinh viên
+                      </p>
                       <input
                         className="border-solid border-1"
-                        onChange={(e) => setUsername(e.target.value)}
+                        onChange={(e) => setMS(e.target.value)}
                       ></input>
                     </div>
-                    <div className="flex">
-                      <p className="px-3">Mật khẩu</p>
+                    <div className="flex flex-row text-right">
+                      <p className="px-3 basis-64">Họ và tên</p>
                       <input
-                        type="password"
                         className="border-solid border-1"
-                        onChange={(e) => setPassword(e.target.value)}
+                        onChange={(e) => setTen(e.target.value)}
                       ></input>
                     </div>
-                    <div className="items-center justify-center text-center pt-7 gap-2">
-                      <button className="bg-gray-600 p-2.5 text-white hover:bg-gray-300">
-                        Đăng nhập
+                    <div className=" flex flex-row text-right">
+                      <p className="px-3 basis-64">Giới tính</p>
+                      <input
+                        className="border-solid border-1"
+                        onChange={(e) => setGT(e.target.value)}
+                      ></input>
+                    </div>
+                    <div className=" flex flex-row text-right">
+                      <p className="px-3 basis-64">Địa chỉ</p>
+                      <input
+                        className="border-solid border-1"
+                        onChange={(e) => setDc(e.target.value)}
+                      ></input>
+                    </div>
+                    <div className=" flex flex-row text-right">
+                      <p className="px-3 basis-64">Điện thoại</p>
+                      <input
+                        className="border-solid border-1"
+                        onChange={(e) => setDt(e.target.value)}
+                      ></input>
+                    </div>
+                    <div className=" flex flex-row text-right">
+                      <p className="px-3 basis-64">Email</p>
+                      <input
+                        className="border-solid border-1"
+                        onChange={(e) => setEmail(e.target.value)}
+                      ></input>
+                    </div>
+                    <div className="items-center justify-center text-right pt-7 ">
+                      <button
+                        onClick={handleUpdate}
+                        className="bg-gray-600 px-2.5 p-2 mr-2 text-white hover:bg-gray-300"
+                      >
+                        Cập nhật
                       </button>
-                      <button className="bg-gray-600 p-2.5 text-white hover:bg-gray-300" onClick={close}> 
+                      <button
+                        className="bg-gray-600 p-2 text-white hover:bg-gray-300"
+                        onClick={close}
+                      >
                         Bỏ qua
                       </button>
                     </div>

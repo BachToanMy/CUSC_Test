@@ -9,6 +9,7 @@ function Students() {
   function close() {
     setIsOpen(false);
   }
+
   return (
     <>
       <div class="flex justify-center pt-5">
